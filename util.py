@@ -481,6 +481,7 @@ def get_available_devices() -> object:
     """
     gpu_ids = []
     if torch.cuda.is_available():
+        print("CUDA AVAILABLE!")
         gpu_ids += [gpu_id for gpu_id in range(torch.cuda.device_count())]
         device = torch.device(f'cuda:{gpu_ids[0]}')
         torch.cuda.set_device(device)
